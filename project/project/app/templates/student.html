@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {%load static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>student details</title>
+  <link rel="stylesheet" href="{%static 'styles/student.css'%}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="student-details">
+    <h1>Students book issue and Return </h1>
+  </div>
+  <div class="pending-books">
+    <table style="list-style-type: none;" >
+      <tr class="books">
+          <th class="details">STUDENT CODE</th>
+          <th class="details">BOOK CODE</th>
+          <th class="details">ISSUE DATE</th>
+          <th class="details">RETURN DATE</th>
+      </tr>
+      {% for i in b_details %}
+      <tr class="books">
+        
+          <td class="details">{{i.id}}</td>  {% comment %} student code {% endcomment %}
+          <td class="details">{{i.s_code}}</td>        {% comment %} Book Code {% endcomment %}
+          <td class="details">{{i.b_code}}</td>       {% comment %} Issue date {% endcomment %}
+          <td class="details">{{i.issue_date}}</td>       {% comment %} Return date {% endcomment %}
+          <td class="details">{{i.return_date}}</td> 
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="btn">
+    <a href="http://127.0.0.1:8000/issue"><button id="issue" >ISSUE</button></a>
+    <a href="http://127.0.0.1:8000/returnbook"><button id="return">RETURN</button></a>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
